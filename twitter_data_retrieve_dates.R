@@ -44,7 +44,7 @@ for(i in 1:length(Retailers)){
     twitter_data <- twListToDF(userTimeline(Retailers[i],n=1500,includeRts = FALSE,excludeReplies = TRUE))
 
 #Create a dataframe with unique social dates to be written to CSV file 
-    twitter_data_write <- unique(as.Date(twitter_raw_data$created))
+    twitter_data_write <- unique(as.Date(twitter_data$created))
 
 #write a csv file for each Retailer. 
     write.csv2(twitter_data_write,paste0(Retailers[i],".csv"),row.names = FALSE)
